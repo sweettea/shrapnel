@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 import sys, os, time, threading, django.utils.autoreload
-sys.path.insert(0, "/mit/lua/Scripts/shrapnel")
-os.chdir("/mit/lua/Scripts/shrapnel")
+# note: this following line assumes this file is symlinked into web_scripts
+# if you're copying this file, set path = '/mit/locker_name/Scripts/django/shrapnel'
+path = os.path.join(os.path.dirname(os.path.realpath(__file__)), os.path.pardir)
+sys.path.insert(0, path)
+os.chdir(path)
 os.environ['DJANGO_SETTINGS_MODULE'] = "shrapnel.settings"
 
 def reloader_thread():

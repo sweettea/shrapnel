@@ -11,6 +11,7 @@ var app = module.exports = express.createServer();
 // Configuration
 
 app.configure(function(){
+  app.use(express.bodyParser());
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
 });

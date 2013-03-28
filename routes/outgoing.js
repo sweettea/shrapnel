@@ -3,7 +3,6 @@ var needle=require('needle');
 
 function mailObject(reqbody){
 	console.log("Trying to build an email to send!");
-	console.log(reqbody);
 	var thisMail={
 	'from'		:'Shrapnel <shrapnel-reply@mit.edu>',
 	'to'		: reqbody.sender,

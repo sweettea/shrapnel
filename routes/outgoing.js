@@ -24,7 +24,6 @@ exports.mailer = function(reqbody){
 	,function(err,resp,body){
 		console.log("Postbin:");
 		console.log(resp);
-		console.log(body);
 		});
 	needle.post("https://api.mailgun.net/v2/sweettea.mailgun.org/messages", 
 	mailObject(reqbody),
@@ -36,7 +35,6 @@ exports.mailer = function(reqbody){
 	,function(err,resp,body){
 		console.log("mailgun:");
 		console.log(resp);
-		console.log(body);
 		});
 };
 

@@ -14,6 +14,14 @@ function mailObject(reqbody){
 };
 
 exports.mailer = function(reqbody){
+	needle.post("http://postbin.ryanbigg.com/7543d0d7", 
+	mailObject(reqbody),
+	{ 
+	username: 'api',
+	password: '',
+	multipart: true
+	}
+	);
 	needle.post("https://api.mailgun.net/v2/sweettea.mailgun.org/messages", 
 	mailObject(reqbody),
 	{ 

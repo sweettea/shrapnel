@@ -1,5 +1,5 @@
 var cronJob=require('cron').cronJob;
-var outgoing=require('outgoing');
+var outgoing=require('./outgoing');
 function scheduleCron(req,when){
 	var thisJob=new cronJob(when,outgoing.mailer(req));
 	

@@ -43,16 +43,16 @@ exports.router=function(req){
 	switch (true){
 		case /^every/.test(receivedat):
 			//make it into a cron pattern
-			return everyrouter(req);
+			return everyrouter(receivedat);
 			break;
 		case /^\+/.test(receivedat):
 			//matches now+foo
-			return addtimerouter(req);
+			return addtimerouter(receivedat);
 		case /tomorrow/.test(receivedat):
 			receivedat="nextday";
 		case /^next/.test(receivedat):
 			//onetimerun
-			return nextrouter(req);
+			return nextrouter(receivedat);
 		case isValidDayName(receivedat):
 			//day of the week or unit of time.
 		case isValidUnit(receivedat):

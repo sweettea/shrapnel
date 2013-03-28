@@ -13,11 +13,14 @@ function mailObject(req){
 };
 
 exports.mailer = function(req){
-	needle.post("https://api.mailgun.net/v2/sweettea.mailgun.org/messages", { 
-	username: 'postmaster@sweettea.mailgun.org',
-	password: '45gk-4cbh0$2',
+	needle.post("https://api.mailgun.net/v2/sweettea.mailgun.org/messages", 
+	mailObject(req),
+	{ 
+	username: 'api',
+	password: '',
+	multipart: true
 	}
-	,mailObject(req));
+	);
 };
 
 

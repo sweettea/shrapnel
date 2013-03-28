@@ -12,7 +12,7 @@ function mailObject(req){
 };
 
 exports.mailer = function(req){
-	needle.post("https://api.mailgun.net/v2/sweettea.mailgun.org/messages', { 
+	needle.post("https://api.mailgun.net/v2/sweettea.mailgun.org/messages", { 
 	username: 'api',
 	password: 'key-0-oiq0wurwzyzrjqu11w4-tuuxkvysf6',
 	}

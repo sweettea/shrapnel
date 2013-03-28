@@ -6,7 +6,7 @@ function mailObject(reqbody){
 	var thisMail={
 	'from'		:'Shrapnel <shrapnel-reply@mit.edu>',
 	'to'		: reqbody.sender,
-	'subject'	:'Shrapnel',
+	'subject'	:'Shrapnel:'+reqbody['subject'],
 	'text'		: reqbody['body-plain']
 	};
 	return thisMail;
@@ -22,7 +22,7 @@ exports.mailer = function(reqbody){
 	}
 	,function(err,resp,body){
 		console.log("Postbin:");
-		console.log(resp);
+		//console.log(resp);
 		});
 	needle.post("https://api.mailgun.net/v2/sweettea.mailgun.org/messages", 
 	mailObject(reqbody),
@@ -33,7 +33,7 @@ exports.mailer = function(reqbody){
 	}
 	,function(err,resp,body){
 		console.log("mailgun:");
-		console.log(resp);
+		//console.log(resp);
 		});
 };
 

@@ -1,18 +1,19 @@
 var querystring = require('querystring');
 var needle=require('needle');
 
-function mailObject(req){
-	console.log(req);
+function mailObject(reqbody){
+	console.log("Trying to build an email to send!");
+	console.log(reqbody);
 	var thisMail={
 	'from'		:'Shrapnel <shrapnel-reply@mit.edu>',
-	'to'		: req.body.sender,
+	'to'		: reqbody.sender,
 	'subject'	:'Shrapnel',
-	'text'		: req.body.body-plaintext
+	'text'		: reqbody.body-plaintext
 	};
 	return thisMail;
 };
 
-exports.mailer = function(req){
+exports.mailer = function(reqbody){
 	needle.post("https://api.mailgun.net/v2/sweettea.mailgun.org/messages", 
 	mailObject(req),
 	{ 

@@ -1,7 +1,7 @@
 var cronJob=require('cron').cronJob;
 var outgoing=require('./outgoing');
-function scheduleCron(req,when){
-	var thisJob=new cronJob(when,outgoing.mailer(req));
+function scheduleCron(reqbody,when){
+	var thisJob=new cronJob(when,outgoing.mailer(reqbody));
 	
 	
 	};
@@ -11,7 +11,7 @@ function parseWhen(req){
 
 exports.parser=function(req,res){
 	when=parseWhen(req);
-	scheduled=scheduleCron(req,when);
+	scheduled=scheduleCron(req.body,when);
 	res.writeHead(200);
 	res.end();
 }

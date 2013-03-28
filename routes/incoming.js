@@ -11,7 +11,12 @@ function parseWhen(req){
 
 exports.parser=function(req,res){
 	when=parseWhen(req);
-	scheduled=scheduleCron(req.body,when);
-	res.writeHead(200);
+	try{
+		scheduled=scheduleCron(req.body,when);
+		res.writeHead(200);
+		}
+	catch(e){
+		res.writeHead(406);
+		}
 	res.end();
 }

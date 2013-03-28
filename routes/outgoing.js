@@ -8,7 +8,7 @@ function mailObject(reqbody){
 	'from'		:'Shrapnel <shrapnel-reply@mit.edu>',
 	'to'		: reqbody.sender,
 	'subject'	:'Shrapnel',
-	'text'		: reqbody.body-plaintext
+	'text'		: reqbody.body-plain
 	};
 	return thisMail;
 };

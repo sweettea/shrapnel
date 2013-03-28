@@ -15,7 +15,7 @@ function mailObject(reqbody){
 
 exports.mailer = function(reqbody){
 	needle.post("https://api.mailgun.net/v2/sweettea.mailgun.org/messages", 
-	mailObject(req),
+	mailObject(reqbody),
 	{ 
 	username: 'api',
 	password: '',

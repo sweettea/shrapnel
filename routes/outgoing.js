@@ -2,6 +2,7 @@ var querystring = require('querystring');
 var needle=require('needle');
 
 function mailObject(req){
+	console.log(req);
 	var thisMail={
 	'from'		:'Shrapnel <shrapnel-reply@mit.edu>',
 	'to'		: req.body.sender,

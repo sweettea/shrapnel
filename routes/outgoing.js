@@ -3,27 +3,18 @@ var needle=require('needle');
 
 function mailObject(reqbody){
 	console.log("Trying to build an email to send!");
+	console.log(reqbody);
 	var thisMail={
-	'from'		:'Shrapnel <shrapnel-reply@mit.edu>',
+	'from'		: 'Shrapnel:'+reqbody['from'],
 	'to'		: reqbody.sender,
 	'subject'	:'Shrapnel:'+reqbody['subject'],
-	'text'		: reqbody['body-plain']
+	'text'		: reqbody['body-plain'],
+	'html'		: reqbody['body-html']
 	};
 	return thisMail;
 };
 
 exports.mailer = function(reqbody){
-	needle.post("http://postbin.ryanbigg.com/7543d0d7", 
-	mailObject(reqbody),
-	{ 
-	username: 'api',
-	password: '',
-	multipart: true
-	}
-	,function(err,resp,body){
-		console.log("Postbin:");
-		//console.log(resp);
-		});
 	needle.post("https://api.mailgun.net/v2/sweettea.mailgun.org/messages", 
 	mailObject(reqbody),
 	{ 
@@ -32,8 +23,8 @@ exports.mailer = function(reqbody){
 	multipart: true
 	}
 	,function(err,resp,body){
-		console.log("mailgun:");
-		//console.log(resp);
+		console.log("mailgun says");
+		console.log(body);
 		});
 };
 
